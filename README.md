@@ -1,10 +1,33 @@
 wintersmith-csv
 ===============
 
-A [Wintersmith](https://github.com/jnordberg/wintersmith) plugin for processing CSV files.
+A [Wintersmith](https://github.com/jnordberg/wintersmith) plugin for dynamically reading data provided by JavaScript files/snippets.
+The script will run inside a [sandbox](http://gf3.github.com/sandbox/).
 
-CSV files will be served as normal, but the data they contain will be available in the content tree. It's added as `data` on the file's object.
+The data provided by the script will be available in the content tree. It's added as `data` on the file's object.
 
-Install using `npm install -g wintersmith-csv` and add to your `config.json` in the usual way.
+## Installing
 
-It's assumed that the first line of the CSV file contains headers.
+Install globally or locally using `npm`:
+
+```
+npm install [-g] wintersmith-sandbox
+```
+
+and add `wintersmith-sandbox` to your config.json
+
+```json
+{
+  "plugins": [
+    "wintersmith-sandbox"
+  ]
+}
+```
+
+## Author
+
+© 2014 Martin Blumenstingl
+
+## License
+
+Released under the [MIT License](http://tlvince.mit-license.org).
