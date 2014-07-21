@@ -1,6 +1,8 @@
 wintersmith-csv
 ===============
 
+[![Dependency Status](https://david-dm.org/xdarklight/wintersmith-sandbox.svg)](https://david-dm.org/xdarklight/wintersmith-sandbox)
+
 A [Wintersmith](https://github.com/jnordberg/wintersmith) plugin for dynamically reading data provided by JavaScript files/snippets.
 The script will run inside a [sandbox](http://gf3.github.com/sandbox/).
 
