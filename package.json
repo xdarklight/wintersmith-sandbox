@@ -3,18 +3,34 @@
 	"version": "0.0.1",
 	"description": "A Wintersmith plugin for dynamically reading data provided by a JS file",
 	"main": "index.js",
+	"directories": {
+		"lib": "./lib",
+		"example": "./examples"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/xdarklight/wintersmith-sandbox.git"
 	},
 	"keywords": [
 		"wintersmith",
+		"wintersmith-contentplugin",
 		"sandbox"
 	],
 	"author": "Martin Blumenstingl <martin.blumenstingl@googlemail.com>",
 	"license": "MIT",
 	"dependencies": {
-		"coffee-script": "~1.7.0",
+		"coffee-script": ">= 1.7.0",
 		"sandbox": ">= 0.8.0"
+	},
+	"devDependencies": {
+		"mocha": ">= 1.20.0",
+		"chai": ">= 1.9.0",
+		"wintersmith": ">= 2.0"
+	},
+	"peerDependencies": {
+		"wintersmith": ">= 2.0"
+	},
+	"scripts": {
+		"test": "./node_modules/.bin/mocha"
 	}
 }

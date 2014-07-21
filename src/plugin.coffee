@@ -1,34 +1,36 @@
-###
-/* vim: set tabstop=4:softtabstop=4:shiftwidth=4:noexpandtab */
-// kate: replace-tabs on; indent-width 4; indent-mode cstyle;
-###
-
 fs = require 'fs'
 Sandbox = require 'sandbox'
 
 module.exports = (env, callback) ->
 
-    class SandboxPlugin extends env.ContentPlugin
+  class SandboxPlugin extends env.ContentPlugin
 
-        constructor: (@_filepath, @_text, @data) ->
-            @sandbox = new Sandbox()
+    constructor: (@_filepath, @_text, @data) ->
 
-        getFilename: ->
-            @_filepath.relative
+    getFilename: ->
+      (@data && @data["filename"]) ? @_filepath.relative
 
-        getView: ->
-            (env, locals, contents, templates, callback) ->
-                callback null, new Buffer @_text
+    getView: ->
+      (env, locals, contents, templates, callback) ->
+        callback null, new Buffer((@data && @data["template"]) ? @_text)
 
-        SandboxPlugin.fromFile = (filepath, callback) ->
-            fs.readFile filepath.full, (error, buffer) ->
-                if error
-                    callback error
-                else
-                    # The retunred message (= resultData) should be a JSON object or a simple array.
-                    @sandbox.onmessage = (resultData) ->
-                        callback null, new SandboxPlugin(filepath, buffer.toString(), resultData))
-                    @sandbox.run(buffer.toString())
+    SandboxPlugin.fromFile = (filepath, callback) ->
+      fs.readFile filepath.full, (error, buffer) ->
+        if error
+          callback error
+        else
+          scriptContent = buffer.toString()
 
-    env.registerContentPlugin 'database', '**/*.(sandboxed.js|js)', SandboxPlugin
-    callback() # tell the plugin manager we are done
+          @sandbox = new Sandbox()
+
+          # The retunred message (= resultData) should be a
+          # JSON object or a simple array.
+          @sandbox.on 'message', (resultData) ->
+            callback null,
+            new SandboxPlugin(filepath, scriptContent, resultData)
+          @sandbox.run scriptContent
+
+  env.registerContentPlugin 'sandbox', '**/*.sandboxjs', SandboxPlugin
+
+  # tell the plugin manager we are done
+  callback()
