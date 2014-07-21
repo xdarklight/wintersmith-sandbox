@@ -8,11 +8,11 @@ module.exports = (env, callback) ->
     constructor: (@_filepath, @_text, @data) ->
 
     getFilename: ->
-      (@data && @data["filename"]) ? @_filepath.relative
+      @_filepath.relative
 
     getView: ->
       (env, locals, contents, templates, callback) ->
-        callback null, new Buffer((@data && @data["template"]) ? @_text)
+        callback null, new Buffer(@_text)
 
     SandboxPlugin.fromFile = (filepath, callback) ->
       fs.readFile filepath.full, (error, buffer) ->
