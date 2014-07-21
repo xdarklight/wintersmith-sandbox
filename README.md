@@ -1,5 +1,5 @@
-wintersmith-csv
-===============
+wintersmith-sandbox
+===================
 
 [![Dependency Status](https://david-dm.org/xdarklight/wintersmith-sandbox.svg)](https://david-dm.org/xdarklight/wintersmith-sandbox)
 
