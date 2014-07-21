@@ -14,7 +14,7 @@
 	"author": "Martin Blumenstingl <martin.blumenstingl@googlemail.com>",
 	"license": "MIT",
 	"dependencies": {
-		"coffee-script": "~1.6.2",
+		"coffee-script": "~1.7.0",
 		"sandbox": ">= 0.8.0"
 	}
 }
