@@ -1,0 +1,20 @@
+{
+	"name": "wintersmith-sandbox",
+	"version": "0.0.1",
+	"description": "A Wintersmith plugin for dynamically reading data provided by a JS file",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/xdarklight/wintersmith-sandbox.git"
+	},
+	"keywords": [
+		"wintersmith",
+		"sandbox"
+	],
+	"author": "Martin Blumenstingl <martin.blumenstingl@googlemail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"coffee-script": "~1.6.2",
+		"sandbox": ">= 0.8.0"
+	}
+}
