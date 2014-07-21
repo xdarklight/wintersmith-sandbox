@@ -3,10 +3,14 @@ wintersmith-sandbox
 
 [![Dependency Status](https://david-dm.org/xdarklight/wintersmith-sandbox.svg)](https://david-dm.org/xdarklight/wintersmith-sandbox)
 
-A [Wintersmith](https://github.com/jnordberg/wintersmith) plugin for dynamically reading data provided by JavaScript files/snippets.
-The script will run inside a [sandbox](http://gf3.github.com/sandbox/).
+A [Wintersmith](https://github.com/jnordberg/wintersmith) plugin for dynamically getting data from a JavaScript files/snippets.
+These script are run inside a [sandbox](http://gf3.github.com/sandbox/).
 
-The data provided by the script will be available in the content tree. It's added as `data` on the file's object.
+The data provided by the script will be available in the content tree. It's added as `data` on the file's object:
+```
+for item in contents._.sandbox
+  ...item.data.yourproperty
+```
 
 ## Installing
 
